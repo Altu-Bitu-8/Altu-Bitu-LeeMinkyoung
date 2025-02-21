@@ -12,9 +12,13 @@ void getClothes(unordered_map<string, int>& m, int n) {
         m[clothesType]++;
     }
 
-    int days = 0;
+    int days = 1;
 
-
+    for(const auto& clothesType : m)
+    {
+        days *= (clothesType.second + 1);
+    }
+    cout << days - 1 << "\n";
 }
 
 int main() {
@@ -29,6 +33,5 @@ int main() {
         unordered_map<string, int> m;
         getClothes(m, n);
     }
-
     return 0;
 }
